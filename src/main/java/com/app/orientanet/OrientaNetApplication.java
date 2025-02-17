@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class OrientaNetApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(OrientaNetApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(OrientaNetApplication.class, args);
+    }
 
 }
