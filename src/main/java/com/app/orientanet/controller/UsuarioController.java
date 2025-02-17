@@ -42,4 +42,10 @@ public class UsuarioController {
         Usuario usuario = usuarioService.updateUsuario(id, usuarioDetalles);
         return ResponseEntity.ok(usuario);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUsuario(@PathVariable("id")Integer id) {
+        usuarioService.deleteUsuario(id);
+        return ResponseEntity.noContent().build();
+    }
 }
