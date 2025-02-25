@@ -20,6 +20,15 @@ public class PruebaVocacional {
 
     private String nombre;
 
-    @OneToMany(mappedBy = "prueba", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "prueba", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Pregunta> preguntas;
+
+    public void asignarPruebaAPreguntas() {
+        if (preguntas != null) {
+            for (Pregunta pregunta : preguntas) {
+                pregunta.setPrueba(this);
+                pregunta.asignarPreguntaAOpciones();
+            }
+        }
+    }
 }

@@ -9,14 +9,22 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-class PruebaResultado {
+public class PruebaResultado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String carreraSugerida;
+
+    @ManyToOne
+    @JoinColumn(name = "carrera_id")
+    private Carrera carreraSugerida;
+
     private int puntajeTotal;
 
     @OneToOne
     @JoinColumn(name = "prueba_id")
     private PruebaVocacional prueba;
+
+    public void debugResultado() {
+        System.out.println("Resultado ID: " + id + ", Carrera Sugerida: " + carreraSugerida.getNombre() + ", Puntaje Total: " + puntajeTotal);
+    }
 }

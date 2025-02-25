@@ -1,10 +1,7 @@
 package com.app.orientanet.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.MapsId;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -13,11 +10,14 @@ import lombok.Data;
 public class Experto {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    private Long id;
     @OneToOne
     @MapsId
+    @JsonBackReference
     private Usuario usuario;
 
+    @Column(name = "expertise_field")
     private String expertiseField;
 }

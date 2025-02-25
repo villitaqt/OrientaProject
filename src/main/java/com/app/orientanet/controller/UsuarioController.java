@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/usuarios")
 @RequiredArgsConstructor
 /* TODO: agregar @VAlid */
@@ -24,7 +24,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioCreado);
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<Usuario>> getAllUsuarios() {
         List<Usuario> usuario = usuarioService.getAllUsuarios();
         return ResponseEntity.ok(usuario);

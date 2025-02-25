@@ -1,5 +1,6 @@
 package com.app.orientanet.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import com.app.orientanet.model.enums.Role;
 import lombok.Data;
@@ -34,10 +35,13 @@ public class Usuario {
 //        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name())); // "ROLE_USER", "ROLE_ADMIN"
 //    }
 
+    // En Usuario.java
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Estudiante estudiante;
 
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Experto experto;
 
 

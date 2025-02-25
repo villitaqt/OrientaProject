@@ -16,8 +16,16 @@ public class Opcion {
     private Integer id;
     private String texto;
     private int valor;
+
     @ManyToOne
     @JoinColumn(name = "pregunta_id")
     private Pregunta pregunta;
 
+    @ManyToOne
+    @JoinColumn(name = "carrera_id")
+    private Carrera carrera;
+
+    public void debugOpcion() {
+        System.out.println("Opcion ID: " + id + ", Texto: " + texto + ", Valor: " + valor + ", Carrera: " + carrera.getNombre());
+    }
 }

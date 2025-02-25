@@ -1,5 +1,6 @@
 package com.app.orientanet.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 @Data
@@ -7,10 +8,12 @@ import lombok.Data;
 @Table(name = "estudiantes")
 public class Estudiante {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @OneToOne
     @MapsId
+    @JsonBackReference
     private Usuario usuario;
 
     private String studentode;
